@@ -18,10 +18,14 @@ public  class repositorioContato {
             }
 
             public static void adicionarContato(Contato contato){
+
                 contatos.add(contato);
             }
-            public static void updateContato(Contato contatoNew, Contato contatoOld){
-                contatos.remove(contatoOld);
-                contatos.add(contatoNew);
+            public static void updateContato(Contato contatoNew, int id){
+                contatos.set(id,contatoNew);
             }
+            public static void dellContato( int id){
+                contatos.remove(id);
             }
+
+}

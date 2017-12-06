@@ -28,14 +28,6 @@ public class MainActivity extends AppCompatActivity {
         btnAdicionar = findViewById(R.id.btnAdicionar);
         listViewContato = findViewById(R.id.listViewContato);
 
-
-        Contato contato = new Contato("Thalison", "(51) 99795-8281", "Masculino","12/08/1996");
-        Contato contato2 = new Contato("Ramonkiss", "(51) xxxx-xxxx", "Masculino","12/08/1996");
-        Contato contato3 = new Contato("Thalison Bauer", "(51) 99795-8281", "Masculino","12/08/1996");
-
-        repositorio.adicionarContato(contato);
-        repositorio.adicionarContato(contato2);
-        repositorio.adicionarContato(contato3);
         listViewContato.setAdapter(adapter);
 
         listViewContato.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -44,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
                 Contato contato =(Contato) parent.getItemAtPosition(position);
                 Intent info = new Intent(MainActivity.this, infoContato.class);
                 info.putExtra("objeto",contato);
+                info.putExtra("id",position);
                 startActivity(info);
             }
             });
