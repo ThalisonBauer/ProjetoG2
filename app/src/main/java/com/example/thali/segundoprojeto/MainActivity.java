@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     Button btnAdicionar;
     ListView listViewContato;
     List<Contato> lista = repositorioContato.getContatos();
+    repositorioContato  repositorio = new repositorioContato();
     adapterContato adapter = new adapterContato(this,lista);
 
     @Override
@@ -27,10 +29,25 @@ public class MainActivity extends AppCompatActivity {
         listViewContato = findViewById(R.id.listViewContato);
 
 
-        Contato contato = new Contato("THALISON", "999999", "MASCULINO","19");
-        lista.add(contato);
+        Contato contato = new Contato("Thalison", "(51) 99795-8281", "Masculino","12/08/1996");
+        Contato contato2 = new Contato("Ramonkiss", "(51) xxxx-xxxx", "Masculino","12/08/1996");
+        Contato contato3 = new Contato("Thalison Bauer", "(51) 99795-8281", "Masculino","12/08/1996");
 
+        repositorio.adicionarContato(contato);
+        repositorio.adicionarContato(contato2);
+        repositorio.adicionarContato(contato3);
         listViewContato.setAdapter(adapter);
+
+        listViewContato.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Contato contato =(Contato) parent.getItemAtPosition(position);
+                Intent info = new Intent(MainActivity.this, infoContato.class);
+                info.putExtra("objeto",contato);
+                startActivity(info);
+            }
+            });
+
 
         btnAdicionar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,7 +55,9 @@ public class MainActivity extends AppCompatActivity {
                 Intent it = new Intent(MainActivity.this, cadastrarContato.class);
                 startActivity(it);
             }
+
         });
+
     }
     @Override
     protected void onResume() {

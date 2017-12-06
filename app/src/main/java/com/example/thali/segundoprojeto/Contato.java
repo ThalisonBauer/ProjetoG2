@@ -1,10 +1,12 @@
 package com.example.thali.segundoprojeto;
 
+import java.io.Serializable;
+
 /**
  * Created by thali on 05/12/2017.
  */
 
-public class Contato {
+public class Contato implements Serializable{
     private String nomeContato;
     private String numeroContato;
     private String sexoContato;
