@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     Button btnAdicionar;
     ListView listViewContato;
     List<Contato> lista = repositorioContato.getContatos();
+    adapterContato adapter = new adapterContato(this,lista);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +26,10 @@ public class MainActivity extends AppCompatActivity {
         btnAdicionar = findViewById(R.id.btnAdicionar);
         listViewContato = findViewById(R.id.listViewContato);
 
-        adapterContato adapter = new  adapterContato(getApplication(),lista);
+
+        Contato contato = new Contato("THALISON", "999999", "MASCULINO","19");
+        lista.add(contato);
+
         listViewContato.setAdapter(adapter);
 
         btnAdicionar.setOnClickListener(new View.OnClickListener() {
@@ -35,5 +39,10 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(it);
             }
         });
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        adapter.notifyDataSetChanged();
     }
 }

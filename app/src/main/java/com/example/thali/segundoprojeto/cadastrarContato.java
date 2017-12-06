@@ -42,6 +42,7 @@ public class cadastrarContato extends AppCompatActivity {
                     telefone = edtTelefone.getText().toString();
                     sexo = spinnerSexo.getSelectedItem().toString();
                     idade = edtNascimento.getText().toString();
+
                     Contato contato = new Contato(nome,telefone,sexo,idade);
                     repositorioContato.adicionarContato(contato);
 

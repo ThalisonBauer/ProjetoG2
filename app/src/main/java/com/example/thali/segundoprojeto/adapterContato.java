@@ -14,7 +14,10 @@ public class adapterContato extends BaseAdapter {
     List<Contato> contatos;
     Context context;
 
-
+    public adapterContato(Context context,List<Contato> contatos) {
+        this.contatos = contatos;
+        this.context = context;
+    }
 
     @Override
             public int getCount(){
@@ -32,6 +35,7 @@ public class adapterContato extends BaseAdapter {
             };
         @Override
             public View getView(int position, View ConvertView, ViewGroup parent){
+
             View resultView = LayoutInflater.from(context).inflate(R.layout.item_contato,parent,false);
             TextView txtViewNome  = resultView.findViewById(R.id.txtViewNome);
             TextView txtViewNumero =  resultView.findViewById(R.id.txtViewNumero);
