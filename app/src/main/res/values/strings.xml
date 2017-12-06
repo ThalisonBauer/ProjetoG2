@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">segundoProjeto</string>
+    <string name="title_activity_item__contato">item_Contato</string>
+    <string-array name="sexo">
+        <item>Masculino</item>
+        <item>Feminino</item>
+        <item>Duvida</item>
+    </string-array>
+</resources>
