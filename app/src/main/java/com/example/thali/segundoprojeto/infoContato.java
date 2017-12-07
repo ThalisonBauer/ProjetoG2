@@ -16,10 +16,10 @@ public class infoContato extends AppCompatActivity {
         Intent letsMain = new Intent(infoContato.this, MainActivity.class);
         startActivity(letsMain);
     }
-    public void msn(){
+    public void msn(String mensagem){
         Context contex = getApplicationContext();
         int tempo = Toast.LENGTH_SHORT;
-        Toast toast = Toast.makeText(contex,"CONTATO REMOVIDO",tempo);
+        Toast toast = Toast.makeText(contex,""+mensagem,tempo);
         toast.show();
     }
     repositorioContato repositorio = new repositorioContato();
@@ -67,6 +67,8 @@ public class infoContato extends AppCompatActivity {
 
                     Contato contatoNew = new Contato(nome, numero,sexo,nascimento);
                     repositorio.updateContato(contatoNew, id);
+                    isMain();
+                    msn("Contato Alterado");
 
                 }
             });
@@ -75,7 +77,7 @@ public class infoContato extends AppCompatActivity {
                 public void onClick(View view) {
                     repositorio.dellContato(id);
                     isMain();
-                    msn();
+                    msn("Contato Removido");
                 }
             });
 

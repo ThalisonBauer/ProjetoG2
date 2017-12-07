@@ -1,5 +1,7 @@
 package com.example.thali.segundoprojeto;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,6 +15,16 @@ import java.util.Date;
 import java.util.List;
 
 public class cadastrarContato extends AppCompatActivity {
+    public void isMain(){
+        Intent letsMain = new Intent(cadastrarContato.this, MainActivity.class);
+        startActivity(letsMain);
+    }
+    public void msn(String mensagem){
+        Context contex = getApplicationContext();
+        int tempo = Toast.LENGTH_SHORT;
+        Toast toast = Toast.makeText(contex,""+mensagem,tempo);
+        toast.show();
+    }
     EditText edtNome;
     EditText edtTelefone;
     EditText edtNascimento;
@@ -46,7 +58,8 @@ public class cadastrarContato extends AppCompatActivity {
                     Contato contato = new Contato(nome,telefone,sexo,idade);
                     repositorioContato repositorio = new repositorioContato();
                     repositorio.adicionarContato(contato);
-
+                    isMain();
+                    msn("Contato Adicionado");
 
 
 

@@ -15,7 +15,10 @@
         android:ems="10"
         android:textSize="30dp"
         android:textAlignment="center"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="30dp"/>
 
 
     <EditText
@@ -25,7 +28,9 @@
         android:layout_weight="0"
         android:ems="10"
         android:textAlignment="center"
-        android:inputType="numberDecimal" />
+        android:inputType="numberDecimal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"/>
 
     <EditText
         android:id="@+id/edtNascimento"
@@ -34,28 +39,34 @@
         android:layout_weight="0"
         android:ems="10"
         android:textAlignment="center"
-        android:inputType="date" />
+        android:inputType="date"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"/>
 
     <Spinner
         android:id="@+id/spinnerSexo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0" />
+        android:layout_weight="0"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"/>
 
     <Button
         android:id="@+id/btnSalvar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="10dp"
         android:text="SALVAR" />
 
     <Button
         android:id="@+id/btnDeletar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="10dp"
         android:text="DELETAR" />
 
 </LinearLayout>
